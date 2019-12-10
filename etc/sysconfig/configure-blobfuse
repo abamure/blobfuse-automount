@@ -1,10 +1,10 @@
 # Configuration for pulling secret from Azure Key Vault
 
 # Name of the Key Vault
-KEYVAULT_NAME = "your-keyvault-name"
+KEYVAULT_NAME="your-keyvault-name"
 # Name of secret to pull from Key Vault
-KEYVAULT_SECRET = "your-keyvault-secret"
+KEYVAULT_SECRET="your-keyvault-secret"
 # Name of storage account to mount
-ACCOUNT_NAME = "your-storage-account-name"
+ACCOUNT_NAME="your-storage-account-name"
 # Name of container to mount
-CONTAINER_NAME = "your-storage-contanier-name"
+CONTAINER_NAME="your-storage-contanier-name"
