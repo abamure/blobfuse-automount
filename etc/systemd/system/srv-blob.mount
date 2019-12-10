@@ -1,0 +1,16 @@
+
+[Unit]
+Description=Blobfuse
+Requires=configure-blobfuse.service
+Wants=configure-blobfuse.service
+
+[Mount]
+What=/srv/blob-mount.sh
+Where=/srv/blob
+
+# This works, but cannot provide tmp-path or credentials with -o flags
+# so need to use script instead
+#Type=fuse.blobfuse
+Type=fuse
+
+Options=defaults

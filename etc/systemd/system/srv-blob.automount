@@ -1,0 +1,10 @@
+[Unit]
+Description=Automount blobfuse
+ConditionPathExists=/srv/blob
+
+[Automount]
+Where=/srv/blob
+TimeoutIdleSec=10
+
+[Install]
+WantedBy=multi-user.target
