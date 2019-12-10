@@ -1,0 +1,12 @@
+[Unit]
+Description=Configure BlobFuse
+Wants=network-online.target
+After=network-online.target
+
+[Service]
+EnvironmentFile=-/etc/sysconfig/configure-blobfuse
+ExecStart=/usr/local/bin/configure-blobfuse "$KEYVAULT_NAME" "$KEYVAULT_SECRET"
+TimeoutSec=120
+
+[Install]
+WantedBy=multi-user.target
