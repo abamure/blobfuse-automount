@@ -27,6 +27,8 @@ This method depends on an Azure Key Vault with a secret containing a SAS token w
 ```
 cp configure-blobfuse.py /usr/local/bin/configure-blobfuse
 chmod +x /usr/local/bin/configure-blobfuse
+touch /tmp/connection.cfg
+chmod 0600 /tmp/connection.cfg
 ```
 
 3. Ensure the pip package `requests` is installed on your system (using pip3 if necessary)
