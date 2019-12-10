@@ -4,8 +4,9 @@ Wants=network-online.target
 After=network-online.target
 
 [Service]
+Type=oneshot
 EnvironmentFile=-/etc/sysconfig/configure-blobfuse
-ExecStart=/usr/local/bin/configure-blobfuse "$KEYVAULT_NAME" "$KEYVAULT_SECRET"
+ExecStart=/usr/local/bin/configure-blobfuse "$KEYVAULT_NAME" "$KEYVAULT_SECRET" "$ACCOUNT_NAME" "$CONTAINER_NAME"
 TimeoutSec=120
 
 [Install]
