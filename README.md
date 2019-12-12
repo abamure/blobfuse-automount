@@ -23,25 +23,20 @@ This method depends on an Azure Key Vault with a secret containing a SAS token w
     - Fill out the configuration in /etc/sysconfig/configure-blobfuse
     - Execute `systemctl daemon-reload` and `systemctl enable configure-blobfuse`
 
-2. Copy configure-blobfuse utility
+2. Copy configure-blobfuse utility, mount blobfuse script, and create empty configuration file
 ```
 cp configure-blobfuse.py /usr/local/bin/configure-blobfuse
 chmod +x /usr/local/bin/configure-blobfuse
-touch /tmp/connection.cfg
-chmod 0600 /tmp/connection.cfg
+cp mount-blobfuse.sh /usr/local/bin/mount-blobfuse
+chmod +x /usr/local/bin/mount-blobfuse
+touch /etc/sysconfig/mnt-blobfuse
+chmod 0600 /etc/sysconfig/mnt-blobfuse
 ```
 
 3. Ensure the pip package `requests` is installed on your system (using pip3 if necessary)
 
 4. Create necessary mount points on your system
 ```
-mkdir /mnt/<your-mount-point>
+mkdir /mnt/blobfuse
 mkdir /mnt/resource/blobfusetmp
 ```
-
-5. Setup your fstab file to auto-mount the container
-- Add this line to your fstab file
-```
-/tmp/mount_blobfuse.sh   /mnt/loading            fuse     x-systemd.automount,x-systemd.requires=configure-blobfuse.service,_netdev,allow_other 0 0
-```
-- Copy `mount-blobfuse.sh` to the `/tmp` directory on your VM

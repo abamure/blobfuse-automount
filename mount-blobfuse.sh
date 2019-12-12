@@ -1,1 +1,2 @@
-/usr/bin/blobfuse $1 --tmp-path=/mnt/resource/blobfusetmp -o attr_timeout=240 -o entry_timeout=240 -o negative_timeout=120 --config-file=/tmp/connection.cfg
+#!/bin/sh
+/usr/bin/blobfuse $1 --tmp-path=/mnt/resource/blobfusetmp --config-file=/etc/sysconfig/mnt-blobfuse

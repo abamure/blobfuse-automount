@@ -1,16 +1,15 @@
 
 [Unit]
-Description=Blobfuse
+Description=Mount Blobfuse
 Requires=configure-blobfuse.service
 Wants=configure-blobfuse.service
 
 [Mount]
-What=/srv/blob-mount.sh
-Where=/srv/blob
+What=/usr/local/bin/mount-blobfuse
+Where=/mnt/blobfuse
 
 # This works, but cannot provide tmp-path or credentials with -o flags
 # so need to use script instead
-#Type=fuse.blobfuse
 Type=fuse
 
-Options=defaults
+Options=defaults,attr_timeout=240,entry_timeout=240,negative_timeout=120,_netdev,allow_other

@@ -1,9 +1,9 @@
 [Unit]
 Description=Automount blobfuse
-ConditionPathExists=/srv/blob
+ConditionPathExists=/mnt/blobfuse
 
 [Automount]
-Where=/srv/blob
+Where=/mnt/blobfuse
 TimeoutIdleSec=10
 
 [Install]

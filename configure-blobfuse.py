@@ -7,6 +7,8 @@ import sys
 
 
 class Program:
+    config_file_path = "/etc/sysconfig/mnt-blobfuse"
+
     def __init__(self):
         self.parser = argparse.ArgumentParser(description="Create configuration file to mount blobfuse")
         self.parser.add_argument("kv_name", help="Key Vault name holding SAS token")
@@ -41,9 +43,9 @@ class Program:
             sys.exit(1)
 
     def write_config(self, token):
-        if os.path.exists("/tmp/connection.cfg"):
-            os.remove("/tmp/connection.cfg")
-        with open("/tmp/connection.cfg", "w+") as f:
+        if os.path.exists(config_file_path):
+            os.remove(config_file_path)
+        with open(config_file_path, "w+") as f:
             f.write(f"accountName {self.options.account_name}")
             f.write("\n")
             f.write(f"sasToken {token}")
