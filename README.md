@@ -54,3 +54,10 @@ chmod 0600 /etc/sysconfig/mnt-blobfuse
 mkdir /mnt/blobfuse
 mkdir /mnt/resource/blobfusetmp
 ```
+
+---
+
+Alternatively to using the `.mount` and `.automount` units, you can mount in your `/etc/fstab` file instead
+```
+/usr/local/bin/mount-blobfuse   /mnt/blobfuse            fuse     x-systemd.automount,x-systemd.requires=configure-blobfuse.service,_netdev,allow_other 0 0
+```
