@@ -43,9 +43,9 @@ class Program:
             sys.exit(1)
 
     def write_config(self, token):
-        if os.path.exists(config_file_path):
-            os.remove(config_file_path)
-        with open(config_file_path, "w+") as f:
+        if os.path.exists(self.config_file_path):
+            os.remove(self.config_file_path)
+        with open(self.config_file_path, "w+") as f:
             f.write(f"accountName {self.options.account_name}")
             f.write("\n")
             f.write(f"sasToken {token}")
